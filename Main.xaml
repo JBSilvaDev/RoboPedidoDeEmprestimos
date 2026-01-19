@@ -113,9 +113,11 @@
       <AssemblyReference>System.Net.Requests</AssemblyReference>
       <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="898.4000000000001,563.2" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="892.8000000000001,563.2" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -620,6 +622,11 @@
                                   <InArgument x:TypeArguments="x:String" x:Key="in_strUiBankUrlLogin">[strUiBankUrlLogin]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_strUiBankUserName">[strUiBankUserName]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_strUiBankPassword">[strUiBankPassword]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strSendToEmail">[strSendToEmail]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strEmailUserName">[strEmailUserName]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strPortSMTP">[strPortSMTP]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strEmailPassword">[strEmailPassword]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strServerSMTP">[strServerSMTP]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_38" Message="[&quot;&quot;]" />
@@ -669,7 +676,7 @@
                         <Transition DisplayName="System Exception (failed initialization)" sap:VirtualizedContainerService.HintSize="448.8,802.4" sap2010:WorkflowViewState.IdRef="Transition_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:PointCollection x:Key="ConnectorLocation">396,146 426,146 426,95.52 560,95.52</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">396,146 426,146 426,94.80000000000001 560,94.80000000000001</av:PointCollection>
                               <x:Int32 x:Key="SrcConnectionPointIndex">28</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">33</x:Int32>
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -751,7 +758,7 @@
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Int32 x:Key="SrcConnectionPointIndex">48</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">29</x:Int32>
-                              <av:PointCollection x:Key="ConnectorLocation">396,176 426,176 426,259.16 545,259.16</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">396,176 426,176 426,258.52 545,258.52</av:PointCollection>
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
