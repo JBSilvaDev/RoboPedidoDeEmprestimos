@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_strUiBankUrlLogin" Type="InArgument(x:String)" />
@@ -126,275 +126,33 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="876.0000000000001,626.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="876.0000000000001,2530.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="486.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <Sequence DisplayName="UiBank" sap:VirtualizedContainerService.HintSize="486.4,397.6" sap2010:WorkflowViewState.IdRef="Sequence_14">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:Boolean" Name="boolLoginStatus" />
-        <Variable x:TypeArguments="x:Int32" Name="intTentativaLogin" />
-      </Sequence.Variables>
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="662.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
+    <Sequence DisplayName="UiBank" sap:VirtualizedContainerService.HintSize="449.6,227.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="452.8,314.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-        <TryCatch.Try>
-          <Sequence DisplayName="UiBankLogin" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_8">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int32">[intTentativaLogin]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">1</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="433.6,48" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[CType(in_Config(&quot;MaxRetryNumber&quot;), Int32)]">
-              <ui:RetryScope.ActivityBody>
-                <ActivityAction>
-                  <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="483.2,596" sap2010:WorkflowViewState.IdRef="Sequence_17">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Tentativa login UiBank: &quot; + intTentativaLogin.ToString]" />
-                    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome UiBank-Welcome" sap:VirtualizedContainerService.HintSize="449.6,313.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="b2b0e348-d90a-49ea-8e2a-3164427eb3b7" Version="V2" WindowResize="Maximize">
-                      <uix:NApplicationCard.Body>
-                        <ActivityAction x:TypeArguments="x:Object">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                          </ActivityAction.Argument>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382.4,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="b2b0e348-d90a-49ea-8e2a-3164427eb3b7" Text="[in_strUiBankUserName]" Version="V4">
-                              <uix:NTypeInto.Target>
-                                <uix:TargetAnchorable BrowserURL="uibank.uipath.com/welcome" CVScreenId="d1117f8b-e471-4857-8b15-5966ca0f2268" ContentHash="kuqxDWKydUOPA1mFmqXu9Q" CvElementArea="465, 642, 281, 69" CvType="InputBox" DesignTimeRectangle="467, 643, 278, 66" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='username' tag='INPUT' type='text' class='form-control uibank-input ng-untouched ng-pristine ng-valid' placeholder='Enter username' aaname='Username' /&gt;" Guid="3c813d43-44c8-40cf-a28b-630fc6a80aae" InformativeScreenshot="06b3c16c8a1f28ed592eca51c8e68884.png" IsResponsive="True" Reference="m4HJtvAIA06rERO2s5F8Wg/a2NHm15Y1k27_5HZTaWhiA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Welcome' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                  <uix:TargetAnchorable.Anchors>
-                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                      <uix:Target CVScreenId="d1117f8b-e471-4857-8b15-5966ca0f2268" CvTextArea="465, 609, 73, 15" CvTextArgument="Username" CvType="Text" DesignTimeRectangle="467, 606, 72, 23" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='uibank-label' aaname='Username' check:innerText='Username' /&gt;" Guid="f7f0762a-0e18-4739-a075-a3a90d5f8f04" SearchSteps="FuzzySelector, CV" />
-                                    </scg:List>
-                                  </uix:TargetAnchorable.Anchors>
-                                </uix:TargetAnchorable>
-                              </uix:NTypeInto.Target>
-                            </uix:NTypeInto>
-                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382.4,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="b2b0e348-d90a-49ea-8e2a-3164427eb3b7" Text="[in_strUiBankPassword]" Version="V4">
-                              <uix:NTypeInto.Target>
-                                <uix:TargetAnchorable BrowserURL="uibank.uipath.com/welcome" CVScreenId="d1117f8b-e471-4857-8b15-5966ca0f2268" ContentHash="rBwrTClEZUatYyVzZoPhjQ" CvElementArea="465, 783, 281, 69" CvType="InputBox" DesignTimeRectangle="467, 784, 278, 66" DesignTimeScaleFactor="1.25" ElementType="InputBoxPassword" FuzzySelectorArgument="&lt;webctrl id='password' tag='INPUT' type='password' class='form-control uibank-input ng-untouched ng-pristine ng-valid' placeholder='Enter password' aaname='Password' /&gt;" Guid="af691587-1b05-45fe-8c69-4d8b410f96cc" InformativeScreenshot="911ffe898fad59b12ceefda3498c23d0.png" Reference="m4HJtvAIA06rERO2s5F8Wg/2VmJ1vDLU02jex7PW79iWw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Welcome' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                  <uix:TargetAnchorable.Anchors>
-                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                      <uix:Target CVScreenId="d1117f8b-e471-4857-8b15-5966ca0f2268" CvTextArea="464, 749, 70, 15" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="467, 746, 67, 24" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' type='' class='uibank-label' check:innerText='Password' /&gt;" Guid="0d8b70f3-8810-41e2-b30e-e853ab2769a7" SearchSteps="FuzzySelector, CV" />
-                                    </scg:List>
-                                  </uix:TargetAnchorable.Anchors>
-                                </uix:TargetAnchorable>
-                              </uix:NTypeInto.Target>
-                            </uix:NTypeInto>
-                            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sign In'" sap:VirtualizedContainerService.HintSize="382.4,189.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b2b0e348-d90a-49ea-8e2a-3164427eb3b7" Version="V4">
-                              <uix:NClick.Target>
-                                <uix:TargetAnchorable BrowserURL="uibank.uipath.com/welcome" CVScreenId="d1117f8b-e471-4857-8b15-5966ca0f2268" ContentHash="OAzdtEN7X0qL39UUylzWjg" CvElementArea="540, 878, 131, 65" CvTextArea="569, 899, 71, 25" CvTextArgument="Sign In" CvType="Button" DesignTimeRectangle="543, 880, 125, 61" DesignTimeScaleFactor="1.25" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-white col-md-12' aaname='Sign In' check:innerText='Sign In' /&gt;" Guid="28374735-8b97-4a86-b9ca-59d1883f40d8" InformativeScreenshot="2a9980b1ed01cf190d1ae763fa4466d1.png" Reference="m4HJtvAIA06rERO2s5F8Wg/91hglqqpJECdxrJFfghg5A" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Welcome' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                  <uix:TargetAnchorable.Anchors>
-                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                      <uix:Target CVScreenId="d1117f8b-e471-4857-8b15-5966ca0f2268" CvElementArea="540, 878, 131, 65" CvTextArea="569, 899, 71, 25" CvTextArgument="Sign In" CvType="Button" DesignTimeRectangle="452, 880, 308, 61" FuzzySelectorArgument="&lt;webctrl type='' class='row d-flex justify-content-center' tag='DIV' aaname='' check:innerText='Sign In' /&gt;" Guid="fba8b65a-297c-42aa-92d5-9aa1f2a0d72d" SearchSteps="FuzzySelector, CV" />
-                                    </scg:List>
-                                  </uix:TargetAnchorable.Anchors>
-                                </uix:TargetAnchorable>
-                              </uix:NClick.Target>
-                            </uix:NClick>
-                            <TryCatch sap2010:Annotation.AnnotationText="Fecha popup se existir" DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="382.4,80.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <TryCatch.Try>
-                                <Sequence sap:VirtualizedContainerService.HintSize="416,630.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,176" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Verificando se há popup de mensagens&quot;]" />
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'I agree to the Privacy …'" sap:VirtualizedContainerService.HintSize="382.4,225.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b2b0e348-d90a-49ea-8e2a-3164427eb3b7" Version="V4">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="uibank.uipath.com/welcome" CVScreenId="2294d384-5865-41ba-b754-9ecac962c844" ContentHash="0qbXDV9Lh0u9rzn3OZY8gA" CvElementArea="794, 685, 331, 64" CvTextArea="821, 706, 251, 25" CvTextArgument="I agree to the Privacy Policy" CvType="Button" DesignTimeRectangle="795, 686, 329, 61" DesignTimeScaleFactor="1.25" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aaname='I agree to the Privacy Policy →' parentid='mat-mdc-dialog-0' tag='BUTTON' type='button' class='btn center-button btn-black' check:innerText='I agree to the Privacy Policy →' /&gt;" Guid="bd3079c8-77e1-4e88-8c70-6efe2bce2bdd" InformativeScreenshot="f83bd424e31e5261c08acf0b68373ec9.png" Reference="m4HJtvAIA06rERO2s5F8Wg/xhuDIp2fhkiR33JwOGRwVA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Welcome' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="2294d384-5865-41ba-b754-9ecac962c844" CvElementArea="794, 685, 331, 64" CvType="Button" DesignTimeRectangle="1076, 705, 20, 24" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='mat-mdc-dialog-0' tag='STRONG' type='' class='' aaname='→' check:innerText='→' /&gt;" Guid="c64ccaab-8e71-4279-904e-43729d5fdbee" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NClick.Target>
-                                    <uix:NClick.VerifyOptions>
-                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionOptions.Retry>
-                                        <uix:VerifyExecutionOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionOptions.Timeout>
-                                      </uix:VerifyExecutionOptions>
-                                    </uix:NClick.VerifyOptions>
-                                  </uix:NClick>
-                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Popup fechado&quot;]" />
-                                </Sequence>
-                              </TryCatch.Try>
-                              <TryCatch.Catches>
-                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="419.2,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ActivityAction x:TypeArguments="s:Exception">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                    </ActivityAction.Argument>
-                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="393.6,144" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Não encontrado popup na página&quot;]" />
-                                  </ActivityAction>
-                                </Catch>
-                              </TryCatch.Catches>
-                            </TryCatch>
-                          </Sequence>
-                        </ActivityAction>
-                      </uix:NApplicationCard.Body>
-                      <uix:NApplicationCard.TargetApp>
-                        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" ContentHash="ir0VhRTGZ0CDaeY5BAcm6A" IconBase64="iVBORw0KGgoAAAANSUhEUgAAAJkAAACZCAMAAAALgmiIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABgUExURfpGFvyMbv////7Rxf/z8PtpQv/5+PyumfyAX/x1UftjO/7WzP3Lvf25p/7o4vtdM/2/r/2dhPx6WP2zoPtXLP7u6fpMHf7i2vtvSfyokf7c0/yGZvpSJf2XfP3Ftvyiiq2qGj8AAAMiSURBVHhe7ZvplqIwEEbTwQ0dl3FBG1t5/7ecg7RCfRXQHJPJLN/9acXUFUIRpTTVn4ohhBBCCCHGmAtuk34fH+giWdlkZOgioZkDmvlDM39o5g/N/KGZP8nNRtkEX2pIa7bb3rJsdxhIbHY8PfKcjhhMabYrupk+MZzOrBRixiwgnsxsMoZUc7gSkpl9Yio8n8nM2tV/Zy0HJDP7wlSYLJXZATMZYzIxwstskUlGIqo5wvhO0XLlXXbf6xzRQZqtISo/pAa/zH60oRJCNT+6701mZqGa1ciKlswMy5kxX7KgJTO7QMyYcyea0myEk30dOtGUZiqzvDJ1HIhoBvcnOJdJzexi/oisZcWoSWlmJ9NZLTefTR077qRmN0p84Zv0Zn3Q7AbNaObmvzQbDNLsDs1o5oZmGKTZHZrRzA3NMEizOzSjmRuaYZBmd2hGMzc0w+C/Y9b+ft+Ajz2QweSDQV+zHKK+Zpeh4FtmM4hWIqrBTyLGBzXDyXzNRPsPTvaWGf65DSdDBtdlUDPs/hiLqGIEw+W1HNRsCdHC8SCrg5pbPCgPanbFcN/TrIYpDhdPfYOaqdOjWrMETdtbi2yvCWqmGgbmMiw5YOODzB3WTDUMYNNYF3UyZWEOa4aXgH763aIazJ4Ux/fMVhg3VzmgAxY/7OIKa6Z2G2bfVziOuMowdWAztdDM2N1QtVKfAQ9vYDN9Ot1qDjG8YQQ2U9uNev1scJDd7XGQMVMYE9rM1TdmTtfuapts8E5eoxZkaDNVbBuK2TLLSltm2RQr/zd4yMKbqXvnaxRqNQY3U9vB11CHLILZwbG6n4Jpo5g9e4sL7HyuiWCm7zvPKHSPfRwz76XmvLlGMRv1VAY3ha7ENVHM9LQD7Hv2cDhFIDP1NaqXMbR8PohlZjdql+Pk7LgqG6KZ2cPluVs+8GtRPDNrVzg5cBrwimtmbXnuP25bZ61oiWtWN8X+dOw+5hexL3IS3axecZuq2ub53ph1ns+qatl3OQqu8M94PMQhzOJAM39o5g/N/KGZPzTzh2b+0Mwfmvnz15qd8mQ4vl4QQggh5DV+AX8flQSKJaqiAAAAAElFTkSuQmCC" InformativeScreenshot="2aab28b737a0d504b92ec5148cbfe873.jpg" Reference="m4HJtvAIA06rERO2s5F8Wg/l_UYKp5zwEyw1KzdBxuBog" Selector="&lt;html app='chrome.exe' title='UiBank-Welcome' /&gt;" Title="UiBank-Welcome" Url="[in_strUiBankUrlLogin]" Version="V1" />
-                      </uix:NApplicationCard.TargetApp>
-                    </uix:NApplicationCard>
-                    <uix:NCheckState DisplayName="Check App State 'Apply For A Loan →'" Exists="[boolLoginStatus]" sap:VirtualizedContainerService.HintSize="449.6,48" sap2010:WorkflowViewState.IdRef="NCheckState_1" Version="V4">
-                      <uix:NCheckState.IfExists>
-                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Sucesso ao efetuar login&quot;]" />
-                        </Sequence>
-                      </uix:NCheckState.IfExists>
-                      <uix:NCheckState.IfNotExists>
-                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,176" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Warn" Message="[&quot;Falha ao realizar login&quot;]" />
-                          <Assign sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Assign_10">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Int32">[intTentativaLogin]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Int32">[intTentativaLogin + 1]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                        </Sequence>
-                      </uix:NCheckState.IfNotExists>
-                      <uix:NCheckState.Target>
-                        <uix:TargetAnchorable BrowserURL="uibank.uipath.com/accounts" ContentHash="9SSJ8gmHn02LzVIbH7AaHg" DesignTimeRectangle="1320, 643, 167, 86" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='applyForLoan' tag='A' type='' class='btn apply-button' aaname=' Apply For A Loan →' check:innerText='Apply For A Loan →' /&gt;" Guid="7b4fd7a2-8193-4302-b780-10bb65a45119" InformativeScreenshot="579b878e6f5cfc83b100d73ce1f53628.png" Reference="m4HJtvAIA06rERO2s5F8Wg/RFxdDRvN00ewmZD4fz4nVw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank - Accounts' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
-                          <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target DesignTimeRectangle="1340, 556, 127, 57" ElementType="Text" FuzzySelectorArgument="&lt;webctrl type='' tag='H5' class='text-max-width text-white' aaname=' Loan Center ' check:innerText='Loan Center' /&gt;" Guid="54e1853c-58c2-48d5-a592-0f67a0565d71" SearchSteps="FuzzySelector" />
-                            </scg:List>
-                          </uix:TargetAnchorable.Anchors>
-                        </uix:TargetAnchorable>
-                      </uix:NCheckState.Target>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </uix:NCheckState>
-                  </Sequence>
-                </ActivityAction>
-              </ui:RetryScope.ActivityBody>
-              <ui:RetryScope.Condition>
-                <ActivityFunc x:TypeArguments="x:Boolean">
-                  <ui:CheckTrue DisplayName="Check True" ErrorMessage="Falha no login" Expression="[boolLoginStatus]" sap:VirtualizedContainerService.HintSize="483.2,131.2" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
-                </ActivityFunc>
-              </ui:RetryScope.Condition>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:RetryScope>
-          </Sequence>
-        </TryCatch.Try>
-        <TryCatch.Catches>
-          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="419.2,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ActivityAction x:TypeArguments="s:Exception">
-              <ActivityAction.Argument>
-                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-              </ActivityAction.Argument>
-              <Sequence DisplayName="TratarFalhaLogin" sap:VirtualizedContainerService.HintSize="416,689.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="x:String" Name="strSavedScreeshot" />
-                </Sequence.Variables>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Numero de tentativas de acesso esgotado&quot;]" />
-                <uix:NTakeScreenshot DisplayName="Take Screenshot" FileName="[&quot;Data\ScreeshotsErros\&quot;+Now.ToString(&quot;ddMMyyHHmm&quot;)+&quot;.png&quot;]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="382.4,56.8" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_2" Version="V4">
-                  <uix:NTakeScreenshot.SavedTo>
-                    <OutArgument x:TypeArguments="x:String">[strSavedScreeshot]</OutArgument>
-                  </uix:NTakeScreenshot.SavedTo>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </uix:NTakeScreenshot>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Enviando email de notificação&quot;]" />
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendMail - Invoke Workflow File (Utils\SendMail.xaml)" sap:VirtualizedContainerService.HintSize="382.4,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utils\SendMail.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strSendToEmail">[in_strSendToEmail]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strEmailUserName">[in_strEmailUserName]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strPortSMTP">[in_strPortSMTP]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strEmailPassword">[in_strEmailPassword]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strServerSMTP">[in_strServerSMTP]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strSavedScreeshot">[strSavedScreeshot]</InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-                <Rethrow sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
-              </Sequence>
-            </ActivityAction>
-          </Catch>
-        </TryCatch.Catches>
-      </TryCatch>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="UiBankLogin - Invoke Workflow File (ProcessBox\UiBank\UiBankLogin.xaml)" sap:VirtualizedContainerService.HintSize="416,167.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ProcessBox\UiBank\UiBankLogin.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_strSendToEmail">[in_strSendToEmail]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_strEmailUserName">[in_strEmailUserName]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_strPortSMTP">[in_strPortSMTP]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_strEmailPassword">[in_strEmailPassword]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_strServerSMTP">[in_strServerSMTP]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_strUiBankUrlLogin">[in_strUiBankUrlLogin]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_strUiBankUserName">[in_strUiBankUserName]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_strUiBankPassword">[in_strUiBankPassword]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
     </Sequence>
   </Sequence>
 </Activity>
