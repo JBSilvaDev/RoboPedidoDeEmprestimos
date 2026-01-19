@@ -473,11 +473,6 @@
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
                             <Sequence DisplayName="Load configurations and open applications" sap:VirtualizedContainerService.HintSize="483.2,2557.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                              <Sequence.Variables>
-                                <Variable x:TypeArguments="x:String" Name="strUiBankUrlLogin" />
-                                <Variable x:TypeArguments="x:String" Name="strUiBankUserName" />
-                                <Variable x:TypeArguments="x:String" Name="strUiBankPassword" />
-                              </Sequence.Variables>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -617,6 +612,11 @@
                                   <OutArgument x:TypeArguments="x:String" x:Key="out_UiBankURL">[strUiBankUrlLogin]</OutArgument>
                                   <OutArgument x:TypeArguments="x:String" x:Key="out_UiBankLogin">[strUiBankUserName]</OutArgument>
                                   <OutArgument x:TypeArguments="x:String" x:Key="out_UiBankSenha">[strUiBankPassword]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_ServerSMTP">[strServerSMTP]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_SenhaApp">[strEmailPassword]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_PortSMTP">[strPortSMTP]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_Email">[strEmailUserName]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_EmailPara">[strSendToEmail]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_37" Message="[strUiBankUrlLogin + strUiBankUserName + New System.Net.NetworkCredential(&quot;&quot;, strUiBankPassword).Password]" />
@@ -838,6 +838,14 @@
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. " Name="TransactionID" />
       <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="Used in case transactions are stored in a DataTable, for example, after being retrieved from a spreadsheet." Name="dt_TransactionData" />
       <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of consecutive system exceptions." Default="0" Name="ConsecutiveSystemExceptions" />
+      <Variable x:TypeArguments="x:String" Name="strUiBankUrlLogin" />
+      <Variable x:TypeArguments="x:String" Name="strUiBankUserName" />
+      <Variable x:TypeArguments="x:String" Name="strUiBankPassword" />
+      <Variable x:TypeArguments="x:String" Name="strServerSMTP" />
+      <Variable x:TypeArguments="x:String" Name="strPortSMTP" />
+      <Variable x:TypeArguments="x:String" Name="strEmailPassword" />
+      <Variable x:TypeArguments="x:String" Name="strEmailUserName" />
+      <Variable x:TypeArguments="x:String" Name="strSendToEmail" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
