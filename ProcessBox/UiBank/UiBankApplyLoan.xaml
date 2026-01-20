@@ -98,31 +98,31 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_17">
+  <Sequence sap:VirtualizedContainerService.HintSize="1260,779" sap2010:WorkflowViewState.IdRef="Sequence_17">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="UiBankApplyLoan" sap:VirtualizedContainerService.HintSize="484,828" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <Sequence DisplayName="UiBankApplyLoan" sap:VirtualizedContainerService.HintSize="484,756" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome UiBank - Accounts" sap:VirtualizedContainerService.HintSize="450,745" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="5c2300b7-962f-40b3-a819-e952c4099c99" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome UiBank - Accounts" sap:VirtualizedContainerService.HintSize="450,673" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="5c2300b7-962f-40b3-a819-e952c4099c99" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,505" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,433" sap2010:WorkflowViewState.IdRef="Sequence_16">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply For A Loan →'" sap:VirtualizedContainerService.HintSize="382,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5c2300b7-962f-40b3-a819-e952c4099c99" Version="V4">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply For A Loan →'" sap:VirtualizedContainerService.HintSize="382,189" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5c2300b7-962f-40b3-a819-e952c4099c99" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="uibank.uipath.com/accounts" CVScreenId="5b574625-0024-4050-90e9-0038cf391028" ContentHash="xSyLtyplREaw4g3yRLQ6Uw" CvTextArea="1304, 619, 145, 21" CvTextArgument="Apply For A Loan" CvType="Text" DesignTimeRectangle="1289, 607, 198, 43" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='applyForLoan' tag='A' type='' class='btn apply-button' aaname=' Apply For A Loan →' check:innerText='Apply For A Loan →' /&gt;" Guid="abdcbe1c-9634-42c1-a54b-af519de246dd" InformativeScreenshot="c3f924f0a7821599acf79449db7874a9.png" Reference="m4HJtvAIA06rERO2s5F8Wg/RFxdDRvN00ewmZD4fz4nVw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank - Accounts' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -132,27 +132,8 @@
                     </uix:TargetAnchorable.Anchors>
                   </uix:TargetAnchorable>
                 </uix:NClick.Target>
-                <uix:NClick.VerifyOptions>
-                  <uix:VerifyExecutionOptions DisplayName="Label 'Apply For A Loan →'" Mode="Appears">
-                    <uix:VerifyExecutionOptions.Retry>
-                      <InArgument x:TypeArguments="x:Boolean" />
-                    </uix:VerifyExecutionOptions.Retry>
-                    <uix:VerifyExecutionOptions.Target>
-                      <uix:TargetAnchorable BrowserURL="uibank.uipath.com/accounts" CVScreenId="5b574625-0024-4050-90e9-0038cf391028" ContentHash="xSyLtyplREaw4g3yRLQ6Uw" CvTextArea="1304, 619, 145, 21" CvTextArgument="Apply For A Loan" CvType="Text" DesignTimeRectangle="1289, 607, 198, 43" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='applyForLoan' tag='A' type='' class='btn apply-button' aaname=' Apply For A Loan →' check:innerText='Apply For A Loan →' /&gt;" Guid="abdcbe1c-9634-42c1-a54b-af519de246dd" InformativeScreenshot="c3f924f0a7821599acf79449db7874a9.png" Reference="m4HJtvAIA06rERO2s5F8Wg/RFxdDRvN00ewmZD4fz4nVw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank - Accounts' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                            <uix:Target CVScreenId="5b574625-0024-4050-90e9-0038cf391028" CvTextArea="1328, 562, 120, 18" CvTextArgument="Loan Center" CvType="Text" DesignTimeRectangle="1272, 560, 232, 23" ElementType="Text" FuzzySelectorArgument="&lt;webctrl type='' tag='H5' class='text-max-width text-white' aaname=' Loan Center ' check:innerText='Loan Center' /&gt;" Guid="7eb34c14-21ed-4af1-869a-f388840de9cf" SearchSteps="FuzzySelector, CV" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:VerifyExecutionOptions.Target>
-                    <uix:VerifyExecutionOptions.Timeout>
-                      <InArgument x:TypeArguments="x:Double" />
-                    </uix:VerifyExecutionOptions.Timeout>
-                  </uix:VerifyExecutionOptions>
-                </uix:NClick.VerifyOptions>
               </uix:NClick>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply For A Loan'" sap:VirtualizedContainerService.HintSize="382,218" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5c2300b7-962f-40b3-a819-e952c4099c99" Version="V4">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply For A Loan'" sap:VirtualizedContainerService.HintSize="382,182" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5c2300b7-962f-40b3-a819-e952c4099c99" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="uibank.uipath.com/loans" CVScreenId="0c778f9e-fead-447e-8cae-cff9aaeb7dfe" ContentHash="LdR97N9NcUCjAY17XkjPSg" CvElementArea="743, 549, 187, 54" CvTextArea="767, 567, 138, 19" CvTextArgument="Apply For A Loan" CvType="Button" DesignTimeRectangle="746, 551, 182, 50" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='applyButton' tag='BUTTON' type='submit' class='btn btn-white btn-xl' aaname='Apply For A Loan' check:innerText='Apply For A Loan' /&gt;" Guid="7e10008f-aca9-4c28-a18b-b2eb0bc777fd" InformativeScreenshot="fbee80732722487bd34d5a282bec3ebc.png" Reference="m4HJtvAIA06rERO2s5F8Wg/3_tO86yDQE-rPf_aUHlw3Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Loan Home' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -162,25 +143,6 @@
                     </uix:TargetAnchorable.Anchors>
                   </uix:TargetAnchorable>
                 </uix:NClick.Target>
-                <uix:NClick.VerifyOptions>
-                  <uix:VerifyExecutionOptions DisplayName="Button 'Apply For A Loan'" Mode="Appears">
-                    <uix:VerifyExecutionOptions.Retry>
-                      <InArgument x:TypeArguments="x:Boolean" />
-                    </uix:VerifyExecutionOptions.Retry>
-                    <uix:VerifyExecutionOptions.Target>
-                      <uix:TargetAnchorable BrowserURL="uibank.uipath.com/loans" CVScreenId="0c778f9e-fead-447e-8cae-cff9aaeb7dfe" ContentHash="LdR97N9NcUCjAY17XkjPSg" CvElementArea="743, 549, 187, 54" CvTextArea="767, 567, 138, 19" CvTextArgument="Apply For A Loan" CvType="Button" DesignTimeRectangle="746, 551, 182, 50" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='applyButton' tag='BUTTON' type='submit' class='btn btn-white btn-xl' aaname='Apply For A Loan' check:innerText='Apply For A Loan' /&gt;" Guid="7e10008f-aca9-4c28-a18b-b2eb0bc777fd" InformativeScreenshot="fbee80732722487bd34d5a282bec3ebc.png" Reference="m4HJtvAIA06rERO2s5F8Wg/3_tO86yDQE-rPf_aUHlw3Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Loan Home' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                            <uix:Target CVScreenId="0c778f9e-fead-447e-8cae-cff9aaeb7dfe" CvElementArea="967, 551, 222, 50" CvTextArea="987, 566, 181, 21" CvTextArgument="Already Have A Loan?" CvType="Button" DesignTimeRectangle="967, 551, 223, 50" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='existingButton' tag='BUTTON' type='submit' class='btn btn-white-nofill btn-xl' aaname='Already Have A Loan?' check:innerText='Already Have A Loan?' /&gt;" Guid="78d49217-8ff6-4bb5-8cb0-403332b2dc43" SearchSteps="FuzzySelector, CV" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:VerifyExecutionOptions.Target>
-                    <uix:VerifyExecutionOptions.Timeout>
-                      <InArgument x:TypeArguments="x:Double" />
-                    </uix:VerifyExecutionOptions.Timeout>
-                  </uix:VerifyExecutionOptions>
-                </uix:NClick.VerifyOptions>
               </uix:NClick>
             </Sequence>
           </ActivityAction>

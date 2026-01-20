@@ -42,6 +42,7 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -96,9 +97,10 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SetResult" sap:VirtualizedContainerService.HintSize="1277,466.82399999999996" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SetResult" sap:VirtualizedContainerService.HintSize="1277,778.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -112,6 +114,6 @@
         <InArgument x:TypeArguments="x:Object">[in_ResultText]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;H&quot; + (io_dtLoanQuotes.Rows.IndexOf(io_TransactionItem) + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Loan Quotes" Text="[in_ResultText]" WorkbookPath="Data\Input\Loan Quotes.xlsx" />
+    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;I&quot; + (io_dtLoanQuotes.Rows.IndexOf(io_TransactionItem) + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Loan Quotes" Text="[in_ResultText]" WorkbookPath="Data\Input\Loan Quotes.xlsx" />
   </Sequence>
 </Activity>

@@ -5,7 +5,7 @@
     <x:Property Name="in_strPortSMTP" Type="InArgument(x:String)" />
     <x:Property Name="in_strEmailPassword" Type="InArgument(x:String)" />
     <x:Property Name="in_strServerSMTP" Type="InArgument(x:String)" />
-    <x:Property Name="in_strSavedScreeshot" Type="InArgument(x:String)" />
+    <x:Property Name="in_strSavedScreenshot" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -112,21 +112,21 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendMail" sap:VirtualizedContainerService.HintSize="876.0000000000001,952" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendMail" sap:VirtualizedContainerService.HintSize="1260,943" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:IfElseIfV2 Condition="[String.IsNullOrEmpty(in_strSavedScreeshot)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="449.6,928.8" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+    <ui:IfElseIfV2 Condition="[String.IsNullOrEmpty(in_strSavedScreenshot)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="450,920" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
       <ui:IfElseIfV2.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,385.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,381" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="FilePaths" Body="Erro login sistema UiBank" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" Email="[in_strEmailUserName]" EnableSSL="True" From="RoboUipath@uipath.com" sap:VirtualizedContainerService.HintSize="382.4,325.6" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="False" Name="Robo Uipath" Password="[in_strEmailPassword]" Port="[CInt(in_strPortSMTP)]" SecureConnection="Auto" Server="[in_strServerSMTP]" Subject="Assunto aqui" To="[in_strSendToEmail]" UseISConnection="False" UseRichTextEditor="True">
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="FilePaths" Body="Erro login sistema UiBank" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" Email="[in_strEmailUserName]" EnableSSL="True" From="RoboUipath@uipath.com" sap:VirtualizedContainerService.HintSize="382,321" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="False" Name="Robo Uipath" Password="[in_strEmailPassword]" Port="[CInt(in_strPortSMTP)]" SecureConnection="Auto" Server="[in_strServerSMTP]" Subject="Assunto aqui" To="[in_strSendToEmail]" UseISConnection="False" UseRichTextEditor="True">
             <ui:SendMail.AttachmentsBackup>
               <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="FilePaths">
                 <usau:BackupSlot.BackupValues>
@@ -156,7 +156,7 @@
             </ui:SendMail.ConnectionDetailsBackupSlot>
             <ui:SendMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                <InArgument x:TypeArguments="x:String">[in_strSavedScreeshot]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_strSavedScreenshot]</InArgument>
               </scg:List>
             </ui:SendMail.Files>
           </ui:SendMail>
@@ -166,13 +166,13 @@
         <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True" />
       </ui:IfElseIfV2.ElseIfs>
       <ui:IfElseIfV2.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,333.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,330" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" Files="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Builder" Body="Erro login sistema UiBank" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" Email="[in_strEmailUserName]" EnableSSL="True" From="RoboUipath@uipath.com" sap:VirtualizedContainerService.HintSize="382.4,273.6" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="False" Name="Robo Uipath" Password="[in_strEmailPassword]" Port="[CInt(in_strPortSMTP)]" SecureConnection="Auto" Server="[in_strServerSMTP]" Subject="Erro Login UIBank" To="[in_strSendToEmail]" UseISConnection="False" UseRichTextEditor="True">
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" Files="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Builder" Body="Erro login sistema UiBank" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" Email="[in_strEmailUserName]" EnableSSL="True" From="RoboUipath@uipath.com" sap:VirtualizedContainerService.HintSize="382,270" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="False" Name="Robo Uipath" Password="[in_strEmailPassword]" Port="[CInt(in_strPortSMTP)]" SecureConnection="Auto" Server="[in_strServerSMTP]" Subject="Erro Login UIBank" To="[in_strSendToEmail]" UseISConnection="False" UseRichTextEditor="True">
             <ui:SendMail.AttachmentsBackup>
               <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Builder">
                 <usau:BackupSlot.BackupValues>
