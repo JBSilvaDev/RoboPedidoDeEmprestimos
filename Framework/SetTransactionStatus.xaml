@@ -349,7 +349,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">320,445 320,474.99999999999994 240,474.99999999999994 240,505</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="If a BussinessRuleException is thrown during the process, the transaction item's status is updated as Failed (Exception Type: Business).&#xA;" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <Sequence sap2010:Annotation.AnnotationText="If a BussinessRuleException is thrown during the process, the transaction item's status is updated as Failed (Exception Type: Business).&#xA;" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="616,1950" sap2010:WorkflowViewState.IdRef="Sequence_14">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -392,9 +392,8 @@
                                     <InArgument x:TypeArguments="x:String" x:Key="in_strEmailPassword">[in_strEmailPassword]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="in_strServerSMTP">[in_strServerSMTP]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="in_strSavedScreenshot">[Nothing]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_MailType">Exception</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="in_strAssuntoEmail">Erro em regra de negocios</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_ExeptionMessage">[in_BusinessException.Message]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_EmailMessage">[in_BusinessException.Message]</InArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                 </ui:InvokeWorkflowFile>
                               </Sequence>
@@ -446,9 +445,8 @@
                           <InArgument x:TypeArguments="x:String" x:Key="in_strEmailPassword">[in_strEmailPassword]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_strServerSMTP">[in_strServerSMTP]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_strSavedScreenshot">[Nothing]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_MailType">Exception</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_strAssuntoEmail">Erro em regra de negocios</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_ExeptionMessage">[in_BusinessException.Message]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_EmailMessage">[in_BusinessException.Message]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -498,7 +496,7 @@
                   <av:Size x:Key="ShapeSize">110,70</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="If a system exception occurs during the process, the transaction item's status is updated as Failed (Exception Type: Application)." DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="616,3107" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence sap2010:Annotation.AnnotationText="If a system exception occurs during the process, the transaction item's status is updated as Failed (Exception Type: Application)." DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="QueueRetry" />
                   <Variable x:TypeArguments="x:String" Name="ScreenshotPath" />
@@ -550,9 +548,8 @@
                           <InArgument x:TypeArguments="x:String" x:Key="in_strEmailPassword">[in_strEmailPassword]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_strServerSMTP">[in_strServerSMTP]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_strSavedScreenshot">[strSavedScreenshot]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_MailType">Exception</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_strAssuntoEmail">Erro de sistema</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_ExeptionMessage">[in_SystemException.Message]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_EmailMessage">[in_SystemException.Message]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>

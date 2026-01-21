@@ -103,7 +103,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1277,467" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1277,778.04" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -638,7 +638,7 @@
                               </If>
                               <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="508,816" sap2010:WorkflowViewState.IdRef="TryCatch_13">
                                 <TryCatch.Try>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="400,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="470,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
                                       <InArgument x:TypeArguments="x:String" x:Key="in_strUiBankUrlLogin">[strUiBankUrlLogin]</InArgument>
                                       <InArgument x:TypeArguments="x:String" x:Key="in_strUiBankUserName">[strUiBankUserName]</InArgument>
@@ -700,9 +700,8 @@
                                             <InArgument x:TypeArguments="x:String" x:Key="in_strEmailPassword">[strEmailPassword]</InArgument>
                                             <InArgument x:TypeArguments="x:String" x:Key="in_strServerSMTP">[strServerSMTP]</InArgument>
                                             <InArgument x:TypeArguments="x:String" x:Key="in_strSavedScreenshot">[strSavedScreenshot]</InArgument>
-                                            <InArgument x:TypeArguments="x:String" x:Key="in_MailType">ErroLogin</InArgument>
                                             <InArgument x:TypeArguments="x:String" x:Key="in_strAssuntoEmail">Erro Login</InArgument>
-                                            <InArgument x:TypeArguments="x:String" x:Key="in_ExeptionMessage">[SystemException.Message]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_EmailMessage">[SystemException.Message]</InArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                         </ui:InvokeWorkflowFile>
                                       </Sequence>
