@@ -2,8 +2,6 @@
   <x:Members>
     <x:Property Name="io_TransactionItem" Type="InOutArgument(sd:DataRow)" />
     <x:Property Name="io_dtLoanQuotes" Type="InOutArgument(sd:DataTable)" />
-    <x:Property Name="in_ResultText" Type="InArgument(x:String)" />
-    <x:Property Name="in_MessageText" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -101,21 +99,14 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SetCellsValue" sap:VirtualizedContainerService.HintSize="1277,778.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SetCellsValue" sap:VirtualizedContainerService.HintSize="1277,466.82399999999996" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:Object">[io_TransactionItem("Result")]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:Object">[in_ResultText]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;I&quot; + (io_dtLoanQuotes.Rows.IndexOf(io_TransactionItem) + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Loan Quotes" Text="[in_ResultText]" WorkbookPath="Data\Input\Loan Quotes.xlsx" />
-    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;H&quot; + (io_dtLoanQuotes.Rows.IndexOf(io_TransactionItem) + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Loan Quotes" Text="[in_MessageText]" WorkbookPath="Data\Input\Loan Quotes.xlsx" />
+    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;I&quot; + (io_dtLoanQuotes.Rows.IndexOf(io_TransactionItem) + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="416,148" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Loan Quotes" Text="[io_TransactionItem(&quot;Result&quot;).ToString]" WorkbookPath="Data\Input\Loan Quotes.xlsx" />
+    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;H&quot; + (io_dtLoanQuotes.Rows.IndexOf(io_TransactionItem) + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="416,148" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Loan Quotes" Text="[io_TransactionItem(&quot;Message&quot;).ToString]" WorkbookPath="Data\Input\Loan Quotes.xlsx" />
+    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;G&quot; + (io_dtLoanQuotes.Rows.IndexOf(io_TransactionItem) + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="416,139" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Loan Quotes" Text="[io_TransactionItem(&quot;LoanRate&quot;).ToString]" WorkbookPath="Data\Input\Loan Quotes.xlsx" />
   </Sequence>
 </Activity>
