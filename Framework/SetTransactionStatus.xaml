@@ -126,7 +126,7 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Set and log the transaction's status along with extra log fields. &#xA;There can be three possible statuses: Success, Business Exception and System Exception.&#xA;&#xA;Business Rule Exception characterizes an irregular situation according to the process's rules and prevents the transaction to be processed. The transaction is not retried in this case, since the result will be the same until the problem that causes the exception is solved.&#xA;For example, it can be considered a BusinessRuleException if a process expects to read an email's attachment, but the sender didn't attach any file. In this case, immediate retries of the transaction will not yield a different result.&#xA;&#xA;On the other hand, system exceptions are characterized by exceptions whose types are different than BusinessRuleException. When this kind of exception happens, the transaction item can be retried after closing and reopening the applications involved in the process. The rationale behind this is that the exception was caused by a problem in the applications, which might be solved by restarting them.&#xA;&#xA;If Orchestrator queues are the source of transactions, the Set Transaction Status activity is used to update the status. In addition, the retry mechanism is also implemented by Orchestrator.&#xA;&#xA;If Orchestrator queues are not used, the status can be set, for example, by writing to a specific column in a spreadsheet. In such cases, the retry mechanism is covered by the framework and the number of retries is defined in the configuration file.&#xA;&#xA;At the end, io_TransactionNumber is incremented, which makes the framework get the next transaction to be processed." DisplayName="Set Transaction Status" sap:VirtualizedContainerService.HintSize="1277,467" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+  <Flowchart sap2010:Annotation.AnnotationText="Set and log the transaction's status along with extra log fields. &#xA;There can be three possible statuses: Success, Business Exception and System Exception.&#xA;&#xA;Business Rule Exception characterizes an irregular situation according to the process's rules and prevents the transaction to be processed. The transaction is not retried in this case, since the result will be the same until the problem that causes the exception is solved.&#xA;For example, it can be considered a BusinessRuleException if a process expects to read an email's attachment, but the sender didn't attach any file. In this case, immediate retries of the transaction will not yield a different result.&#xA;&#xA;On the other hand, system exceptions are characterized by exceptions whose types are different than BusinessRuleException. When this kind of exception happens, the transaction item can be retried after closing and reopening the applications involved in the process. The rationale behind this is that the exception was caused by a problem in the applications, which might be solved by restarting them.&#xA;&#xA;If Orchestrator queues are the source of transactions, the Set Transaction Status activity is used to update the status. In addition, the retry mechanism is also implemented by Orchestrator.&#xA;&#xA;If Orchestrator queues are not used, the status can be set, for example, by writing to a specific column in a spreadsheet. In such cases, the retry mechanism is covered by the framework and the number of retries is defined in the configuration file.&#xA;&#xA;At the end, io_TransactionNumber is incremented, which makes the framework get the next transaction to be processed." DisplayName="Set Transaction Status" sap:VirtualizedContainerService.HintSize="1277,778.04" sap2010:WorkflowViewState.IdRef="Flowchart_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -357,7 +357,7 @@
                     <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If Condition="[in_TransactionItem isNot Nothing AndAlso (in_TransactionItem.GetType is GetType(System.data.DataRow))]" DisplayName="If TransactionItem is a QueueItem (Business Exception)" sap:VirtualizedContainerService.HintSize="582,1203" sap2010:WorkflowViewState.IdRef="If_5">
+                <If Condition="[in_TransactionItem isNot Nothing AndAlso (in_TransactionItem.GetType is GetType(System.data.DataRow))]" DisplayName="If TransactionItem is a QueueItem (Business Exception)" sap:VirtualizedContainerService.HintSize="582,1342" sap2010:WorkflowViewState.IdRef="If_5">
                   <If.Then>
                     <ui:RetryScope DisplayName="Retry Set Transaction Status (Business Exception)" sap:VirtualizedContainerService.HintSize="548,922" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="[Cint(in_Config(&quot;RetryNumberSetTransactionStatus&quot;))]">
                       <ui:RetryScope.ActivityBody>
@@ -432,16 +432,29 @@
                     </ui:RetryScope>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="548,89" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="548,228" sap2010:WorkflowViewState.IdRef="Sequence_26">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendMail - Invoke Workflow File (Utils\SendMail.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="ProcessBox\Utils\SendMail.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strSendToEmail">[in_strSendToEmail]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strEmailUserName">[in_strEmailUserName]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strPortSMTP">[in_strPortSMTP]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strEmailPassword">[in_strEmailPassword]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strServerSMTP">[in_strServerSMTP]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strSavedScreenshot">[Nothing]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_MailType">Exception</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_strAssuntoEmail">Erro em regra de negocios</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_ExeptionMessage">[in_BusinessException.Message]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
                     </Sequence>
                   </If.Else>
                 </If>
-                <Sequence sap2010:Annotation.AnnotationText="Includes custom log fields to the log message.&#xA;They are removed after logging to prevent duplicated status messages about a single transaction." DisplayName="Log business exception with additional logging fields" sap:VirtualizedContainerService.HintSize="514.6666666666666,584.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence sap2010:Annotation.AnnotationText="Includes custom log fields to the log message.&#xA;They are removed after logging to prevent duplicated status messages about a single transaction." DisplayName="Log business exception with additional logging fields" sap:VirtualizedContainerService.HintSize="582,548" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -449,7 +462,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:AddLogFields DisplayName="Add transaction log fields (Business Exception)" sap:VirtualizedContainerService.HintSize="388,124" sap2010:WorkflowViewState.IdRef="AddLogFields_5">
+                  <ui:AddLogFields DisplayName="Add transaction log fields (Business Exception)" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="AddLogFields_5">
                     <ui:AddLogFields.Fields>
                       <InArgument x:TypeArguments="x:String" x:Key="logF_TransactionStatus">BusinessException</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="logF_TransactionNumber">[io_TransactionNumber.ToString]</InArgument>
@@ -458,8 +471,8 @@
                       <InArgument x:TypeArguments="x:String" x:Key="logF_TransactionField2">[in_TransactionField2]</InArgument>
                     </ui:AddLogFields.Fields>
                   </ui:AddLogFields>
-                  <ui:LogMessage DisplayName="Log Message (Business Exception)" sap:VirtualizedContainerService.HintSize="388,175.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Error" Message="[in_Config(&quot;LogMessage_BusinessRuleException&quot;).ToString + in_BusinessException.Message]" />
-                  <ui:RemoveLogFields DisplayName="Remove transaction log fields (Business Exception)" sap:VirtualizedContainerService.HintSize="388,114.66666666666667" sap2010:WorkflowViewState.IdRef="RemoveLogFields_5">
+                  <ui:LogMessage DisplayName="Log Message (Business Exception)" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Error" Message="[in_Config(&quot;LogMessage_BusinessRuleException&quot;).ToString + in_BusinessException.Message]" />
+                  <ui:RemoveLogFields DisplayName="Remove transaction log fields (Business Exception)" sap:VirtualizedContainerService.HintSize="416,113" sap2010:WorkflowViewState.IdRef="RemoveLogFields_5">
                     <ui:RemoveLogFields.Fields>
                       <scg:List x:TypeArguments="InArgument(x:String)" Capacity="8">
                         <InArgument x:TypeArguments="x:String">logF_TransactionStatus</InArgument>
@@ -695,7 +708,7 @@
                   <TryCatch.Try>
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="400,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                        <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">[in_SystemException]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </TryCatch.Try>
@@ -717,7 +730,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log message (CloseAllApplications failed)" sap:VirtualizedContainerService.HintSize="436.8,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Warn" Message="[&quot;CloseAllApplications failed. &quot;+Exception.Message+&quot; at Source: &quot;+Exception.Source]" />
+                          <ui:LogMessage DisplayName="Log message (CloseAllApplications failed)" sap:VirtualizedContainerService.HintSize="437,173" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Warn" Message="[&quot;CloseAllApplications failed. &quot;+Exception.Message+&quot; at Source: &quot;+Exception.Source]" />
                           <TryCatch DisplayName="Try killing processes" sap:VirtualizedContainerService.HintSize="436.8,300.8" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
