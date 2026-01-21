@@ -1,39 +1,51 @@
-### Documentation is included in the Documentation folder ###
+# Robo de Pedido de Empréstimos
 
+Este é um projeto de automação desenvolvido com UiPath que utiliza o Robotic Enterprise Framework (REFramework) para processar pedidos de empréstimo a partir de uma planilha do Excel.
 
-### REFrameWork Template ###
-**Robotic Enterprise Framework**
+## Como Funciona
 
-* Built on top of *Transactional Business Process* template
-* Uses *State Machine* layout for the phases of automation project
-* Offers high level logging, exception handling and recovery
-* Keeps external settings in *Config.xlsx* file and Orchestrator assets
-* Pulls credentials from Orchestrator assets and *Windows Credential Manager*
-* Gets transaction data from Orchestrator queue and updates back status
-* Takes screenshots in case of system exceptions
+O robô segue a estrutura padrão do REFramework, que é dividida em quatro estados principais:
 
+1.  **Inicialização (Initialization):**
+    *   Lê as configurações do arquivo `Data/Config.xlsx`, que inclui informações como a URL do site UiBank, credenciais de login e configurações de e-mail.
+    *   Mata todos os processos desnecessários para garantir uma execução limpa.
+    *   Abre as aplicações necessárias, neste caso, o site UiBank.
 
-### How It Works ###
+2.  **Obter Dados da Transação (Get Transaction Data):**
+    *   Lê os dados da planilha `Data/Input/Loan Quotes.xlsx`.
+    *   Para cada linha na planilha, o robô extrai as informações do pedido de empréstimo e as armazena em um item de transação (DataRow).
 
-1. **INITIALIZE PROCESS**
- + ./Framework/*InitiAllSettings* - Load configuration data from Config.xlsx file and from assets
- + ./Framework/*GetAppCredential* - Retrieve credentials from Orchestrator assets or local Windows Credential Manager
- + ./Framework/*InitiAllApplications* - Open and login to applications used throughout the process
+3.  **Processar Transação (Process Transaction):**
+    *   Para cada item de transação, o robô executa as seguintes etapas:
+        *   Verifica se o e-mail no pedido de empréstimo é válido.
+        *   Se o e-mail for válido, o robô navega até o site do UiBank, faz o login e preenche o formulário de pedido de empréstimo com os dados da transação.
+        *   Após submeter o pedido, o robô obtém o resultado da solicitação e atualiza a planilha com o status.
+        *   Se o e-mail for inválido, o robô marca a transação como uma exceção de negócio (Business Rule Exception).
 
-2. **GET TRANSACTION DATA**
- + ./Framework/*GetTransactionData* - Fetches transactions from an Orchestrator queue defined by Config("OrchestratorQueueName") or any other configured data source
+4.  **Finalizar Processo (End Process):**
+    *   Fecha todas as aplicações abertas durante o processo.
+    *   Envia um e-mail com o status final da execução.
 
-3. **PROCESS TRANSACTION**
- + *Process* - Process trasaction and invoke other workflows related to the process being automated 
- + ./Framework/*SetTransactionStatus* - Updates the status of the processed transaction (Orchestrator transactions by default): Success, Business Rule Exception or System Exception
+## Dados de Entrada
 
-4. **END PROCESS**
- + ./Framework/*CloseAllApplications* - Logs out and closes applications used throughout the process
+O robô utiliza a planilha `Data/Input/Loan Quotes.xlsx` como entrada. A planilha deve conter as seguintes colunas:
 
+*   `LoanEmail`: O endereço de e-mail do solicitante.
+*   `LoanAmount`: O valor do empréstimo solicitado.
+*   `LoanTerm`: O prazo do empréstimo em meses.
+*   `LoanIncome`: A renda anual do solicitante.
+*   `LoanAge`: A idade do solicitante.
+*   `LoanName`: O nome do solicitante.
 
-### For New Project ###
+## Pré-requisitos
 
-1. Check the Config.xlsx file and add/customize any required fields and values
-2. Implement InitiAllApplications.xaml and CloseAllApplicatoins.xaml workflows, linking them in the Config.xlsx fields
-3. Implement GetTransactionData.xaml and SetTransactionStatus.xaml according to the transaction type being used (Orchestrator queues by default)
-4. Implement Process.xaml workflow and invoke other workflows related to the process being automated
+*   UiPath Studio
+*   Acesso à internet para acessar o site UiBank.
+*   As credenciais de login e a URL do site UiBank devem ser configuradas no arquivo `Data/Config.xlsx`.
+
+## Como Executar
+
+1.  Abra o projeto no UiPath Studio.
+2.  Certifique-se de que o arquivo `Data/Input/Loan Quotes.xlsx` esteja preenchido com os dados dos pedidos de empréstimo.
+3.  Configure o arquivo `Data/Config.xlsx` com as informações do ambiente (URL do UiBank, credenciais, etc.).
+4.  Execute o arquivo `Main.xaml` a partir do UiPath Studio.
