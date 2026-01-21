@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="UiBankGetResultUpdateData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="UiBankGetResultUpdateData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="io_TransactionItem" Type="InOutArgument(sd:DataRow)" />
   </x:Members>
@@ -111,13 +111,13 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1260,1727" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence sap:VirtualizedContainerService.HintSize="1260,2079" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="UiBankGetResultUpdateData" sap:VirtualizedContainerService.HintSize="1142,1704" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence DisplayName="UiBankGetResultUpdateData" sap:VirtualizedContainerService.HintSize="1142,2056" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="strResultLoan" />
       </Sequence.Variables>
@@ -126,27 +126,28 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome UiBank-Loan result" sap:VirtualizedContainerService.HintSize="1108,1402" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="ff1b228c-b1a2-4cd0-8a25-b88d15651aae" Version="V2">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1108,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Obtendo resultado da requisição&quot;]" />
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome UiBank-Loan result" sap:VirtualizedContainerService.HintSize="1108,1408" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="ff1b228c-b1a2-4cd0-8a25-b88d15651aae" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1074,1153" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1074,1159" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NCheckState DisplayName="Check App State 'Congrats!'" sap:VirtualizedContainerService.HintSize="1040,1093" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="ff1b228c-b1a2-4cd0-8a25-b88d15651aae" Version="V4">
+              <uix:NCheckState DisplayName="Check App State 'Congrats!'" sap:VirtualizedContainerService.HintSize="1040,1097" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="ff1b228c-b1a2-4cd0-8a25-b88d15651aae" Version="V4">
                 <uix:NCheckState.IfExists>
-                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="502,853" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="502,857" sap2010:WorkflowViewState.IdRef="Sequence_11">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="LoanApprove" sap:VirtualizedContainerService.HintSize="468,793" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <Sequence DisplayName="LoanApprove" sap:VirtualizedContainerService.HintSize="468,795" sap2010:WorkflowViewState.IdRef="Sequence_14">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="strLoanRate" />
                       </Sequence.Variables>
@@ -164,7 +165,7 @@
                         <uix:NGetText.Target>
                           <uix:TargetAnchorable BrowserURL="uibank.uipath.com/loans/result/6970b5813edd9d3df8ff111e/6/true" CVScreenId="921aef38-0f87-4743-a7e5-8cec3ac12203" ContentHash="9N9v-NGhJ0ilPxP52dhcaw" CvTextArea="924, 468, 36, 22" CvType="AnyWordGroup" DesignTimeRectangle="925, 463, 15, 33" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='rateValue' tag='SPAN' type='' class='' /&gt;" Guid="b99ba8ee-6cc1-4ffb-8320-4db0b6e891a8" InformativeScreenshot="859eddc5150dee64db57de1d7eae92c4.png" Reference="m4HJtvAIA06rERO2s5F8Wg/yVRPHmppgEma5PGODfbDfw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Loan result' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                             <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                 <uix:Target CVScreenId="921aef38-0f87-4743-a7e5-8cec3ac12203" CvTextArea="848, 435, 238, 20" CvTextArgument="With a fantastic rate of:" CvType="Text" DesignTimeRectangle="372, 434, 1192, 24" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='H5' type='' class='text-white' aaname=' With a fantastic rate of: ' check:innerText='With a fantastic rate of:' /&gt;" Guid="2f700e61-355e-466e-901d-5afbbd8bdd77" SearchSteps="FuzzySelector, CV" />
                               </scg:List>
                             </uix:TargetAnchorable.Anchors>
@@ -204,13 +205,13 @@
                   </Sequence>
                 </uix:NCheckState.IfExists>
                 <uix:NCheckState.IfNotExists>
-                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="484,512" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="484,520" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="LoanNotApprove" sap:VirtualizedContainerService.HintSize="450,452" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <Sequence DisplayName="LoanNotApprove" sap:VirtualizedContainerService.HintSize="450,458" sap2010:WorkflowViewState.IdRef="Sequence_13">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -227,7 +228,7 @@
                           </uix:TargetAnchorable>
                         </uix:NGetText.Target>
                       </uix:NGetText>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply For Another Loan'" sap:VirtualizedContainerService.HintSize="416,180" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ff1b228c-b1a2-4cd0-8a25-b88d15651aae" Version="V4">
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply For Another Loan'" sap:VirtualizedContainerService.HintSize="416,182" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ff1b228c-b1a2-4cd0-8a25-b88d15651aae" Version="V4">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="uibank.uipath.com/loans/result//0/false" CVScreenId="d1c7379b-6458-4085-8f61-29893b3a11eb" ContentHash="XpPNPCjf-EGDx9uUamKyBg" CvElementArea="743, 502, 239, 53" CvTextArea="765, 520, 192, 19" CvTextArgument="Apply For Another Loan" CvType="Button" DesignTimeRectangle="744, 504, 236, 50" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='applyForNewLoanButton' tag='BUTTON' type='submit' class='btn form-button btn-white btn-xl' aaname='applyForNewLoanButton' check:innerText='Apply For Another Loan' /&gt;" Guid="8065f1b7-3d86-432f-8622-4994ec40563c" InformativeScreenshot="2a8aea68ed87dcce3788e2207ed93d71.png" Reference="m4HJtvAIA06rERO2s5F8Wg/q2g-5Xm-4E2qJ15N9UPjjg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Loan result' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                             <uix:TargetAnchorable.Anchors>
@@ -244,7 +245,7 @@
                 <uix:NCheckState.Target>
                   <uix:TargetAnchorable BrowserURL="uibank.uipath.com/loans/result/6970b5813edd9d3df8ff111e/6/true" CVScreenId="f7c69f75-2004-470c-a204-7c50f3d6cf69" ContentHash="nVyBpULZE0Ct6jrbYWS2nw" CvTextArea="843, 319, 248, 53" CvTextArgument="Congrats!" CvType="Text" DesignTimeRectangle="372, 312, 1192, 58" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='text-center text-white header' aaname=' Congrats! ' check:innerText='Congrats!' /&gt;" Guid="1e5a6a08-f170-49a7-80fe-2fc5a48e7c4a" InformativeScreenshot="ddf78fe2ae2ad8ee38be2d79b6d967bc.png" Reference="m4HJtvAIA06rERO2s5F8Wg/RxWDnvmErkytuJnOYPOsSA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Loan result' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CVScreenId="f7c69f75-2004-470c-a204-7c50f3d6cf69" CvTextArea="510, 382, 912, 37" CvTextArgument="You've been approved for a loan with UiBank!" CvType="Text" DesignTimeRectangle="372, 378, 1192, 48" ElementType="Text" FuzzySelectorArgument="&lt;webctrl type='' tag='H1' class='text-center text-white' aaname=' You&amp;apos;ve been approved for a loan with UiBank! ' check:innerText='You&amp;apos;ve been approved for a loan with UiBank!' /&gt;" Guid="a1cb4a14-67ac-4485-b845-d51d0d6b5ccb" SearchSteps="FuzzySelector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -272,7 +273,7 @@
           <InArgument x:TypeArguments="x:Object">[strResultLoan]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="1108,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign sap:VirtualizedContainerService.HintSize="1108,114" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Object">[io_TransactionItem("Result")]</OutArgument>
         </Assign.To>
@@ -280,6 +281,7 @@
           <InArgument x:TypeArguments="x:Object">["Success"]</InArgument>
         </Assign.Value>
       </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1108,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Resultado obtido!&quot;]" />
     </Sequence>
   </Sequence>
 </Activity>

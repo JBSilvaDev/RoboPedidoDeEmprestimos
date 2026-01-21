@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="UiBankLogoff" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="UiBankLogoff" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>Microsoft.VisualBasic</x:String>
@@ -32,6 +32,9 @@
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -88,49 +91,83 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1260,763" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap:VirtualizedContainerService.HintSize="1277,778.04" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="UiBankLogoff" sap:VirtualizedContainerService.HintSize="484,740" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="UiBankLogoff" sap:VirtualizedContainerService.HintSize="468,546" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Chrome UiBank-Loan Apply" sap:VirtualizedContainerService.HintSize="450,493" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="be0fbe41-9e0c-4240-9188-932aa0b20ff2" Version="V2">
-        <uix:NApplicationCard.Body>
-          <ActivityAction x:TypeArguments="x:Object">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Efetuando logoff&quot;]" />
+      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,290" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <TryCatch.Try>
+          <Sequence sap:VirtualizedContainerService.HintSize="416,281" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Chrome UiBank-Loan Apply" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="be0fbe41-9e0c-4240-9188-932aa0b20ff2" Version="V2">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Logout'" sap:VirtualizedContainerService.HintSize="382,182" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="be0fbe41-9e0c-4240-9188-932aa0b20ff2" Version="V4">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="uibank.uipath.com/loans/apply" CVScreenId="11c649bc-2757-4d50-aabd-61b890b2d19b" ContentHash="i_Se2X3ONk-FkyYribTwuw" CvTextArea="1545, 131, 63, 21" CvTextArgument="Logout" CvType="Text" DesignTimeRectangle="1538, 118, 77, 43" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Logout' tag='A' type='' class='nav-link text-dark' check:innerText='Logout' /&gt;" Guid="132d5680-9879-431b-867a-6fec2c53b9ec" InformativeScreenshot="64c1470039f209aee1f60e06d4cd32cc.png" Reference="m4HJtvAIA06rERO2s5F8Wg/CzLkXgiel0qriA2tcx0QzA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Loan Apply' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="11c649bc-2757-4d50-aabd-61b890b2d19b" CvTextArea="1474, 130, 57, 17" CvTextArgument="Profile" CvType="Text" DesignTimeRectangle="1468, 118, 70, 43" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Profile' tag='A' type='' class='nav-link text-dark' check:innerText='Profile' /&gt;" Guid="e1a88b1a-0f94-472f-86dc-9cf1320cf3dc" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" ContentHash="3BV8C5w7qUSuPpsukQ_b1Q" IconBase64="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" InformativeScreenshot="ff720d75c3db7a7171860095541462fe.jpg" Reference="m4HJtvAIA06rERO2s5F8Wg/7tV2LeC9gU-6tHiQgNrFUw" Selector="&lt;html app='chrome.exe' title='UiBank-Loan Apply' /&gt;" Title="UiBank-Loan Apply" Version="V1" />
+              </uix:NApplicationCard.TargetApp>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Logout'" sap:VirtualizedContainerService.HintSize="382,182" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="be0fbe41-9e0c-4240-9188-932aa0b20ff2" Version="V4">
-                <uix:NClick.Target>
-                  <uix:TargetAnchorable BrowserURL="uibank.uipath.com/loans/apply" CVScreenId="11c649bc-2757-4d50-aabd-61b890b2d19b" ContentHash="i_Se2X3ONk-FkyYribTwuw" CvTextArea="1545, 131, 63, 21" CvTextArgument="Logout" CvType="Text" DesignTimeRectangle="1538, 118, 77, 43" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Logout' tag='A' type='' class='nav-link text-dark' check:innerText='Logout' /&gt;" Guid="132d5680-9879-431b-867a-6fec2c53b9ec" InformativeScreenshot="64c1470039f209aee1f60e06d4cd32cc.png" Reference="m4HJtvAIA06rERO2s5F8Wg/CzLkXgiel0qriA2tcx0QzA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiBank-Loan Apply' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                    <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CVScreenId="11c649bc-2757-4d50-aabd-61b890b2d19b" CvTextArea="1474, 130, 57, 17" CvTextArgument="Profile" CvType="Text" DesignTimeRectangle="1468, 118, 70, 43" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Profile' tag='A' type='' class='nav-link text-dark' check:innerText='Profile' /&gt;" Guid="e1a88b1a-0f94-472f-86dc-9cf1320cf3dc" SearchSteps="FuzzySelector, CV" />
-                      </scg:List>
-                    </uix:TargetAnchorable.Anchors>
-                  </uix:TargetAnchorable>
-                </uix:NClick.Target>
-              </uix:NClick>
-            </Sequence>
-          </ActivityAction>
-        </uix:NApplicationCard.Body>
-        <uix:NApplicationCard.TargetApp>
-          <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" ContentHash="3BV8C5w7qUSuPpsukQ_b1Q" IconBase64="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" InformativeScreenshot="ff720d75c3db7a7171860095541462fe.jpg" Reference="m4HJtvAIA06rERO2s5F8Wg/7tV2LeC9gU-6tHiQgNrFUw" Selector="&lt;html app='chrome.exe' title='UiBank-Loan Apply' /&gt;" Title="UiBank-Loan Apply" Version="V1" />
-        </uix:NApplicationCard.TargetApp>
-      </uix:NApplicationCard>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Navegador finalizado&quot;]" />
+            </uix:NApplicationCard>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Navegador finalizado&quot;]" />
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Rethrow sap:VirtualizedContainerService.HintSize="394,25" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+      </TryCatch>
     </Sequence>
   </Sequence>
 </Activity>
