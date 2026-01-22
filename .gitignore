@@ -46,5 +46,4 @@ env.txt
 node_modules/
 
 # Ignore output folders
-Data/Config.xlsx
 Data/ScreeshotsErros/*
