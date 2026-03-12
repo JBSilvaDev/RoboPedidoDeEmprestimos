@@ -35,6 +35,7 @@
 *.tmp
 *.temp
 ~$*
+.env
 
 
 # Ignore system files
